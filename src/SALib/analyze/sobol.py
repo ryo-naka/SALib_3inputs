@@ -85,9 +85,9 @@ def analyze(problem, Y, calc_second_order=True, num_resamples=100,
     else:
         _, D = extract_group_names(groups)
 
-    if calc_second_order and Y.size % (2 * D + 2) == 0:
+    if calc_second_order and Y.size % (4 * D + 2) == 0:
         N = int(Y.size / (4 * D + 2))
-    elif not calc_second_order and Y.size % (D + 2) == 0:
+    elif not calc_second_order and Y.size % (2 * D + 2) == 0:
         N = int(Y.size / (2 * D + 2))
     else:
         raise RuntimeError("""
